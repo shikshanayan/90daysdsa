@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+      int i=0;
+      int sum=0;
+      int n=s.size();
+     int c[n];
+        for(int i=0;i<n;i++){
+            switch(s[i]){
+                case'I':
+                c[i]=1;
+                break;
+                case'V':
+                c[i]=5;
+                break;
+                case'X':
+                c[i]=10;
+                break;
+                case'L':
+                c[i]=50;
+                break;
+                case'C':
+                c[i]=100;
+                break;
+                case'D':
+                c[i]=500;
+                break;
+                case'M':
+                c[i]=1000;
+                break;
+            }
+        }
+        for(int i=0;i<n-1;i++){
+            if (c[i]>=c[i+1]){
+                sum+=c[i];
+            }
+            else{
+                sum-=c[i];
+            }
+        }
+        sum = sum+c[n-1];
+        return sum;
+    }
+};
